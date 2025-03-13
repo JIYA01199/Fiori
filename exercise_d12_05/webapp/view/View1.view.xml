@@ -1,0 +1,12 @@
+<mvc:View controllerName="sync.d12.exercised1205.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+     <content>
+    <Label  id="label" text="입력하세요" required="true" />
+    <Input id="input" value="{/input}" width="60%"/>
+    <Button id="button" press=".onPress" text="메세지출력"
+    icon="sap-icon://general-leave-request"/>
+    </content>
+    </Page>
+</mvc:View>

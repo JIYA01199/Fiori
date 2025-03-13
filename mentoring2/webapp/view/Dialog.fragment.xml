@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog id="onDialog" title="Employee Details">
+      <content>
+       <VBox>
+         <Label text="{/Cempnumber}"/>
+         <Input id="NAME" value="{/Cname}" />
+         <Input id="POSITION" value="{/Cposition}" />
+         <Input id="DEPARTMENT" value="{/Cdepartment}" />
+         <Input id="STATUS" value="{/Cstatus}" />
+         <Input id="EMAIL" value="{/Cemail}" />
+         <Input id="PHONE" value="{/Cphone}" />
+         <Input id="LOCATION" value="{/Clocation}" />
+         <Input id="SALARY" value="{/Csalary}" />
+      </VBox>
+      </content>
+        <buttons>
+         <Button text="Close" press="onCloseDialog" />
+         <Button text="Save" press="onSave"/>
+        </buttons>
+       </Dialog>
+</core:FragmentDefinition>

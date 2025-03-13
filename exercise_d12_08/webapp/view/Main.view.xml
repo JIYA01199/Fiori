@@ -1,0 +1,82 @@
+<mvc:View controllerName="sync.d12.exercised1208.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    >
+    <Page id="page" title="{i18n>title}">
+   <content>
+        <!-- Chart 정의 -->
+            <viz:VizFrame id="idBarChart" width="100%" height="480px" vizType="line"
+            vizProperties="{ title : {text : '🦒JIYA🦒' , visible : true}}">
+            
+                <!-- FlattenedDataset 데이터바인딩(JSON모델) -->
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{initChart>/salesData}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Month" value="{initChart>month}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Sales" value="{initChart>sales}" />
+                        
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+            
+                <viz:feeds>
+                    <!-- X축 -->
+                    <viz.feeds:FeedItem 
+                        uid="categoryAxis"
+                        type="Dimension"
+                        values="Month"
+                    />
+                    <!-- Y축 -->
+                    <viz.feeds:FeedItem 
+                        uid="valueAxis"
+                        type="Measure"
+                        values="Sales"
+                    />
+                </viz:feeds>
+            
+            </viz:VizFrame>
+        </content>
+
+        <content>
+        <!-- Chart 정의 -->
+         <viz:VizFrame
+            id="idDonutChart"
+            width="100%"
+            height="400px"
+            vizType="donut"   
+            vizProperties="{ title : {text : '🦒JIYA🦒' , visible : true}}"  
+          >
+        <!-- FlattenedDataset을 사용하여 JSON 데이터 바인딩딩 -->
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{initChart>/data}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="category" value="{initChart>category}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="value" value="{initChart>value}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+            
+        <!-- Feed 설정 (Pie/Donut Chart는 color & size 사용용) -->
+                <viz:feeds>
+                    <viz.feeds:FeedItem 
+                        uid="color"
+                        type="Dimension"
+                        values="category"
+                    />
+                    <viz.feeds:FeedItem 
+                        uid="size"
+                        type="Measure"
+                        values="value"
+                    />
+                </viz:feeds>
+            </viz:VizFrame>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,62 @@
+<mvc:View controllerName="sync.d12.exercised1209.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    >
+    <Page id="page" title="{i18n>title}">
+    <content>
+        <!-- Chart 정의 -->
+            <viz:VizFrame id="idBarChart" width="100%" height="480px" vizType="column"
+            vizProperties="{
+                    'title' : { 'visible' : true, 'text' : '🦒JIYA🦒' },
+                    'legendGroup' : {
+                        'layout' : { 'position' : 'bottom' }
+                    },
+                    'plotArea' : {
+                        'drawingEffect' : 'glossy',
+                        'dataLabel' : { 'visible' : true, 'type' : 'value' },
+                        'colorPalette' : ['#6B66FF', '#F361DC']
+                    }
+                }">
+                <!-- FlattenedDataset 데이터바인딩(JSON모델) -->
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{chartModel>/resultData}">
+                    <!-- X축에 들어갈 데이터 내용물물 -->
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="ProductID" value="{chartModel>ProductID}" />
+                            <viz.data:DimensionDefinition name="ProductName" value="{chartModel>ProductName}" />
+                        </viz.data:dimensions>
+
+                        <!-- y축에 들어갈 데이터 내용물물 -->
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="UnitsInStock" value="{chartModel>UnitsInStock}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+            
+                <viz:feeds>
+                    <!-- X축 -->
+                    <viz.feeds:FeedItem 
+                        uid="categoryAxis"
+                        type="Dimension"
+                        values="ProductID"
+                    />
+                    <viz.feeds:FeedItem 
+                        uid="categoryAxis"
+                        type="Dimension"
+                        values="ProductName"
+                    />
+                    <!-- Y축 -->
+                    <viz.feeds:FeedItem 
+                        uid="valueAxis"
+                        type="Measure"
+                        values="UnitsInStock"
+                    />
+                </viz:feeds>
+            
+            </viz:VizFrame>
+        </content>
+    </Page>
+</mvc:View>

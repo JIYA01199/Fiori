@@ -1,0 +1,97 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "sync.d12.numbercalc",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.5",
+            "toolsId": "8c5da047-dcbf-49c1-a464-99d5775c3496"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.133.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sync.d12.numbercalc.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "sync.d12.numbercalc.view",
+                "async": true,
+                "viewPath": "sync.d12.numbercalc.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteCalc",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetCalc"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetCalc": {
+                    "id": "Calc",
+                    "name": "Calc"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "sync.d12.numbercalc.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

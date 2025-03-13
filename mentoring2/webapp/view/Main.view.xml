@@ -1,0 +1,94 @@
+<mvc:View xmlns:table="sap.m.table" controllerName="sync.d12.mentoring2.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    
+    <VBox>   
+        <Input
+            id="CNAME"
+            value="{oDataModel>/Cname}"
+            placeholder="NAME" 
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CPOSITION"
+            value="{oDataModel>/Cposition}"
+            placeholder="POSITION"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CDEPARTMENT"
+            value="{oDataModel>/Cdepartment}"
+            placeholder="DEPARTMENT"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CSTATUS"
+            value="{oDataModel>/Cstatus}"
+            placeholder="STATUS"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CEMAIL"
+            value="{oDataModel>/Cemail}"
+            placeholder="EMAIL"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CPHONE"
+            value="{oDataModel>/Cphone}"
+            placeholder="PHONE"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CLOCATION"
+            value="{oDataModel>/Clocation}"
+            placeholder="LOCATION"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+        <Input
+            id="CSALARY"
+            value="{oDataModel>/Csalary}"
+            placeholder="SALARY"
+            valueLiveUpdate="true"
+            width="auto"/>
+    
+        <Button id="button" press="onCreate" text="추가하기" class="sapUiSmallMarginTopBottom" />
+    </VBox>  
+
+    <Table items="{/ZEMPLOYEE_D12Set}">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Employee List"></Title>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+                <Text text="NAME"></Text>
+            </Column>
+            <Column>
+                <Text text="POSITION"></Text>
+            </Column>          
+            <Column>
+                <Text text="DEPARTMENT"></Text>
+            </Column>                   
+        </columns>    
+        <items>
+            <ColumnListItem >
+                <cells> 
+                    <Text text="{Cname}"/>
+                    <Text text="{Cposition}"/>
+                    <Text text="{Cdepartment}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>   
+    </Page>
+</mvc:View>

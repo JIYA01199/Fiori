@@ -1,0 +1,70 @@
+<mvc:View xmlns:table="sap.m.table" controllerName="sync.d12.exercised1207.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+  <Page id="page" title="{i18n>title}">
+<VBox>
+    <Input
+            id="carrierid"
+            value="{oDataModel>/CarrierId}"
+            placeholder="Enter Carrier ID"
+            valueLiveUpdate="true"
+            width="auto"/>
+    <Input
+            id="carrname"
+            value="{oDataModel>/Carrname}"
+            placeholder="Enter Carrier Name"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+    <Input
+            id="currcode"
+            value="{oDataModel>/Currcode}"
+            placeholder="Enter Currency Code"
+            valueLiveUpdate="true"
+            width="auto"/>
+
+    <Input
+            id="url"
+            value="{oDataModel>/Url}"
+            placeholder="Enter URL http://"
+            valueLiveUpdate="true"
+            width="auto"/>
+    </VBox> 
+    <Button id="Create" press=".onCreate" text="Create" />
+    <Button id="Delete" press=".onDelete" text="Delete" /> 
+    <Button id="Update" press=".onUpdate" text="Update" /> 
+
+    <Table id="table" items="{/ZCARR_D12Set}" mode="SingleSelectLeft">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="항공사 리스트"></Title>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+                <Text text="항공사 코드"></Text>
+            </Column>
+            <Column>
+                <Text text="항공사 이름"></Text>
+            </Column>          
+            <Column>
+                <Text text="통화코드"></Text>
+            </Column>
+            <Column>
+                <Text text="웹사이트"></Text>
+            </Column>                          
+        </columns>    
+        <items>
+            <ColumnListItem >
+                <cells> 
+                    <Text text="{Carrid}"/>
+                    <Text text="{Carrname}"/>
+                    <Text text="{Currcode}"/>
+                    <!-- <Text text="{Url}" /> --> 
+                    <Link  text="{Url}"  target="_blank" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>   
+    </Page>
+</mvc:View>

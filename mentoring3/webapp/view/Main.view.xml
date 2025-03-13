@@ -1,0 +1,28 @@
+<mvc:View controllerName="sync.d12.mentoring3.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+      <Panel
+		   headerText="{i18n>PanelTitle}"
+		   class="sapUiResponsiveMargin"
+		   width="auto">
+            <List id="employeeList"
+               items="{
+                     path : 'Employees>/Employees',
+                     sorter : {
+                        path : 'type',
+                        group : true
+                     }
+                  }" >
+                 <items>
+                  <ObjectListItem id="objectitem"
+                     title="{Employees>Name}"
+                     number="{Employees>Position}"
+                     numberUnit="{Employees>Department}"
+                     >
+                  </ObjectListItem>
+                </items>
+            </List>
+      </Panel>
+    </Page>
+</mvc:View>

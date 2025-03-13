@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog id="onDialog" title="Selected Data">
+   <content>
+       <VBox>
+         <Label text="Name"/>
+         <Input id="inputName"  value="{dialogModel>/Carrname}" />
+         <Label text="Url"/>
+         <Input id="inputUrl" value="{dialogModel>/Url}" />
+      </VBox>
+      </content>
+        <buttons>
+         <Button text="{i18n>dialogCloseButtonText}" press="onCloseDialog" />
+         <Button text="{i18n>dialogUpdateButtonText}" press="onSave"/>
+        </buttons>
+       </Dialog>
+</core:FragmentDefinition>

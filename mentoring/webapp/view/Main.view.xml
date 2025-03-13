@@ -1,0 +1,65 @@
+<mvc:View controllerName="sync.d12.mentoring.controller.Main"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+        <Page id="page" title="{i18n>title}">
+      <List id="productList"
+      headerText="{i18n>productTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto"
+      
+      items="{
+            path : 'products>/products',
+            sorter : {
+                path : 'type',
+                group : true
+            }
+        }" >
+      <headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>productTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField 
+               width="50%" 
+               search=".onFilterProduct"/>
+         </Toolbar>
+      </headerToolbar>
+      <items>
+         <ObjectListItem id="objectitem"
+            title="{products>name}"
+           number="{
+                    parts: [
+                        'products>price',
+                        'view>/currency'
+                    ],
+                    type: 'sap.ui.model.type.Currency',
+                    formatOptions: {
+                        showMeasure: false
+                    }
+                }"
+                numberUnit="{view>/currency}"
+                numberState="{= ${products>price} > 15000 ? 'Error' : 'Success' }"
+                icon="{= ${products>type} === '과일' ? 'sap-icon://nutrition-activity' : 'sap-icon://product' }"
+                intro="{products>type}"
+            >
+            <firstStatus>
+                    <ObjectStatus
+                        core:require="{
+                            Formatter: 'sync/d12/mentoring/model/formatter'
+                        }"
+                        text="{
+                            path: 'products>price',
+                            formatter: 'Formatter.statusText.bind($controller)'
+                        }"/>
+                </firstStatus>
+            <attributes>
+                    <ObjectAttribute text="무엇을 살까요~?"/>
+            </attributes>
+            <markers>
+                  <ObjectMarker type="Flagged" />
+               </markers>
+        </ObjectListItem>
+      </items>
+   </List>
+   </Page>
+</mvc:View>

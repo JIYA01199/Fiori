@@ -1,0 +1,32 @@
+<mvc:View
+   controllerName="ui5.walkthrough.controller.HelloPanel"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Panel
+    headerText="{i18n>helloPanelTitle}"
+    class="sapUiResponsiveMargin"
+    width="auto">
+    <content>
+   <!-- <Text text="Hello World"/> -->
+   <!-- i18n 모델은 직접 바인딩한다. 경로표현x -->
+      <Button
+         id="helloDialogButton"
+         icon="sap-icon://general-leave-request"
+         text="{i18n>openDialogButtonText}"
+         press=".onOpenDialog"
+         class="sapUiSmallMarginEnd"/>
+       <Button
+         text="{i18n>showHelloButtonText}"
+         press=".onShowHello"
+         class="myCustomButton"/>
+      <Input
+      value="{/recipient/name}"
+      description="Hello {/recipient/name}"
+      valueLiveUpdate="true"
+      width="60%"/>
+      <FormattedText
+	   htmlText="Hello {/recipient/name}"
+	   class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
+     </content>
+    </Panel>
+</mvc:View>

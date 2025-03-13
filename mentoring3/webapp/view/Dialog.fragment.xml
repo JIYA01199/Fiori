@@ -1,0 +1,47 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog id="onDialog" title="Employee Details">
+   <content>
+
+<VBox>
+    <HBox>
+        <Label text="Name: " />
+        <Text text="{dialogModel>/Name}" />
+    </HBox>
+    <HBox>
+        <Label text="Position: " />
+        <Text text="{dialogModel>/Position}" />
+    </HBox>
+    <HBox>
+        <Label text="Department: " />
+        <Text text="{dialogModel>/Department}" />
+    </HBox>
+    <HBox>
+        <Label text="Status: " />
+        <Text text="{dialogModel>/Status}" />
+    </HBox>
+    <HBox>
+        <Label text="Email: " />
+        <Text text="{dialogModel>/Email}" />
+    </HBox>
+    <HBox>
+        <Label text="Phone: " />
+        <Text text="{dialogModel>/Phone}" />
+    </HBox>
+    <HBox>
+        <Label text="Location: " />
+        <Text text="{dialogModel>/Location}" />
+    </HBox>
+    <HBox>
+        <Label text="Salary: " />
+        <Text text="{dialogModel>/Salary}" />
+    </HBox>
+</VBox>
+
+      </content>
+        <buttons>
+         <Button text="Close" press="onCloseDialog" />
+        </buttons>
+       </Dialog>
+</core:FragmentDefinition>
