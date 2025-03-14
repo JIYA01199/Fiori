@@ -1,0 +1,66 @@
+<mvc:View controllerName="sync.d12.exercised1211.controller.Main"
+	xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+    height="100%">
+    	<m:Page
+        title="Class"
+		enableScrolling="false"
+		class="sapUiContentPadding">
+		<m:content>
+		<m:Text text="조회조건"/>
+		<m:HBox justifyContent="End" width="100%">
+			<m:Button text="검색" press="onSearch"/>
+			<m:Button text="차트" press="onChart"/>
+		</m:HBox>
+		<m:HBox justifyContent="Center" width="100%">
+   			 <m:SearchField width="100%" search="onFilterData"/>
+			<!-- 드롭박스  -->
+			<m:Select id="optionSelect" selectedKey="" width="auto">
+				<m:items>
+					<c:Item  id="selectAll" key="전체" text="전체" />
+					<c:Item  id="selectFemale" key="여성" text="여성" />
+					<c:Item  id="selectMale" key="남성" text="남성" />
+				</m:items>
+            </m:Select>
+		</m:HBox>
+		</m:content>
+
+		<m:content>
+			<Table id="table"
+				rows="{data>/data}"
+				selectionMode="MultiToggle"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<columns>
+					<Column hAlign="Center">
+						<m:Label text="Name" />
+						<template>
+							<m:Text text="{data>Name}" wrapping="false" />
+						</template>
+					</Column>
+					<Column hAlign="Center">
+						<m:Label text=" Class" />
+						<template>
+							<m:Text text="{data>class}"/>
+						</template>
+					</Column>
+					<Column hAlign="Center">
+						<m:Label text="Gender" />
+						<template>
+							<m:Label text="{data>gender}" />
+						</template>
+					</Column>
+					<Column hAlign="Center">
+						<m:Label text="Details" />
+						<template>
+							<m:Button text="Details" press="onDetails"/>
+						</template>
+					</Column>
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>

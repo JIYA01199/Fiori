@@ -1,6 +1,53 @@
-<mvc:View controllerName="sync.d12.exercised1210.controller.Main"
+<mvc:View xmlns:table="sap.m.table" controllerName="sync.d12.exercised1210.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+    <Button id="button" press="onGoDetail" text="Detail" /> 
+    <!-- <Input
+        id="memo"
+        placeholder="메모" 
+        valueLiveUpdate="true"
+        width="auto"/> -->
+
+        <Table id="table" items="{student>/student}" mode="SingleSelectMaster">
+
+            <headerToolbar>
+                <Toolbar>
+                    <Title text="SYNC 6기 CL4"></Title>
+                </Toolbar>
+            </headerToolbar>
+
+            <columns>
+                <Column>
+                    <Label text="번호"></Label>
+                </Column>
+                <Column>
+                    <Label text="이름"></Label>
+                </Column>          
+                <Column>
+                    <Label text="성별"></Label>
+                </Column>
+                <Column>
+                    <Label text="생일"></Label>
+                </Column>          
+                <!-- <Column>
+                    <Label text="특이사항"></Label>
+                </Column>                       -->
+            </columns> 
+
+            <items>
+                <ColumnListItem >
+                    <cells> 
+                        <Text text="{student>no}"/>
+                        <Text text="{student>name}"/>
+                        <Text text="{student>gender}"/>
+                        <Text text="{student>birthdate}"/>
+                        <!-- <Text text="{detailModel>memo}"/> -->
+
+                    </cells>
+                </ColumnListItem>
+            </items>
+
+        </Table>   
     </Page>
 </mvc:View>

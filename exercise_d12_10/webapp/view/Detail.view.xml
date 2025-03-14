@@ -1,0 +1,56 @@
+<mvc:View controllerName="sync.d12.exercised1210.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Page 
+        id="pageDetail"
+        title="{i18n>title}"
+        showNavButton="true"
+        navButtonPress="onGoBack"
+        >
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <f:SimpleForm id="SimpleFormChange354"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    title="학생 상세정보"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" >
+                    <f:content>
+                        <Label text="번호: " />
+                        <Text text="{detailModel>/no}" />
+
+                        <Label text="이름: " />
+                        <Text text="{detailModel>/name}" />
+
+                        <Label text="성별: " />
+                        <Text text="{detailModel>/gender}" />
+
+                        <Label text="생일: " />
+                        <Text text="{detailModel>/birthdate}" />
+
+                        <!-- <Label text="특이사항: " /> -->
+                        <!-- <Text text="{detailModel>/memo}" /> -->
+                        <!-- <Input id="memo" placeholder="특이사항" valueLiveUpdate="true" width="auto"/> -->
+
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog id="onDialog" icon="" title="🌝상세정보">
+   <content>
+
+    <VBox>
+         <Label text="이름: {dataModel>/name}" />
+         <Label text="클래스: {dataModel>/class}" />
+         <Label text="성별: {dataModel>/gender}" />
+         <!-- <Label text="결과: {/name}" /> -->
+
+    </VBox>
+
+    </content>
+        <buttons>
+         <Button text="OK" press="onCloseDialog" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
